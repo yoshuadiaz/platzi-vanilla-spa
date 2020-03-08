@@ -1,0 +1,70 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+body {
+  @apply bg-gray-900 text-white
+}
+
+.Header {
+  @apply bg-black;
+  &-logo {
+    @apply text-5xl text-portal-100;
+  }
+  &>.Header {
+    @apply max-w-screen-md mx-auto grid items-center p-4;
+    grid-template-columns: 200px 1fr;
+  }
+
+  &-nav {
+    @apply text-right;
+    a {
+      @apply px-2 text-lg cursor-pointer transition transition-colors duration-150;
+      &:hover {
+        @apply text-teal-300;
+      }
+    }
+  }
+}
+
+.Characters {
+  @apply grid grid-cols-1 gap-4 max-w-screen-md mx-8 my-4;
+  &-inner {
+    @apply grid grid-cols-1;
+  }
+  &-card {
+    @apply bg-back p-4;
+    h2 {
+      @apply text-4xl text-portal-100 font-bold text-center;
+    }
+    h3 {
+      @apply bg-black p-2 font-bold text-portal-200 text-xl;
+      span {
+        @apply text-white font-normal
+      }
+    }
+    img {
+      @apply w-full object-cover rounded;
+    }
+  }
+  .Character-item {
+    @apply bg-back p-3 rounded transition-all duration-100 shadow;
+    img {
+      @apply rounded object-cover w-full;
+    }
+    h2 {
+      @apply text-portal-100 text-lg text-center mt-2 cursor-pointer font-bold text-2xl;
+    }
+  }
+}
+
+@screen md {
+  .Characters {
+    @apply grid-cols-3 mx-auto my-4;
+  }
+  .Character-item:hover {
+    @apply bg-indigo-700 transform scale-110 shadow-lg;
+  }
+  .Characters-inner {
+    @apply grid grid-cols-2 max-w-screen-md mx-auto my-4;
+  }
+}
